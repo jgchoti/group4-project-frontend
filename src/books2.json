@@ -1,0 +1,45 @@
+[
+    {
+        "id": "1",
+        "image": "rich.jpg",
+        "title":"rich",
+        "author": "George Orwell",
+        "genre": "Fiction",
+        "condition": "used", 
+        "price": "6$",
+        "email": "iplusone@gmail.com",
+        "phone": "555-555-555",
+        "city": "Antwerpen",
+        "delivery": "pick",
+        "information": "I am only on the weekends"
+    },
+
+    {
+        "id": "2",
+        "image": "habits.jpg",
+        "title":"habits",
+        "author": "George Orwell",
+        "genre": "Fiction",
+        "condition": "used", 
+        "price": "6$",
+        "email": "iplusone@gmail.com",
+        "phone": "555-555-555",
+        "city": "Antwerpen",
+        "delivery": "pick",
+        "information": "I am only on the weekends"
+    },
+    {
+        "id": "3",
+        "image": "mockingbird.jpg",
+        "title":"mockingbird",
+        "author": "George Orwell",
+        "genre": "Fiction",
+        "condition": "used", 
+        "price": "6$",
+        "email": "iplusone@gmail.com",
+        "phone": "555-555-555",
+        "city": "Antwerpen",
+        "delivery": "pick",
+        "information": "I am only on the weekends"
+    }
+]

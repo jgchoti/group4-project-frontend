@@ -1,0 +1,39 @@
+.footer {
+  background-color: rgb(127, 192, 225);
+  border: black solid 2px;
+  height: 320px;
+}
+.container {
+  margin-top: 10px;
+}
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px; /* Adjust the gap as needed */
+}
+
+.footer-about, .social-section, .contact-section {
+  flex: 1;
+  padding: 10px;
+}
+
+.about-site {
+  background-color: rgb(253, 253, 253);
+  border-radius: 10%;
+  border: black solid 2px;
+}
+
+.footer h3 {
+  background-color: rgb(253, 253, 253);
+  width: 200px;
+  text-align: center;
+  padding: 5px;
+  margin: 0 auto; /* Center the h3 elements */
+  border-radius: 10%;
+  border: black solid 2px;
+}
+
+.social-section-icons{
+  margin-top: 20px;
+  margin-left: 90px;
+}
