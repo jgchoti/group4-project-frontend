@@ -1,0 +1,53 @@
+.slogan {
+    background-image: url('../assets//hero.jpg'); /* Replace with your image path */
+    background-size: cover;
+    background-position: center;
+    padding: 5rem 0;
+    /* margin-bottom: 1rem; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30vh; /* adjust the image height */
+  }
+  
+  .slogan-content {
+    max-width: 112rem;
+    padding: 0 1rem;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: rgb(202, 212, 180); /* This makes the text color white to stand out on the background image */
+  }
+  
+  .slogan-text {
+    text-align: center;
+  }
+  
+  .slogan h1 {
+    font-size: 4rem;
+    font-weight: 800;
+    color: inherit; /* Use the inherited color from .hero-content */
+  }
+  
+  @media (min-width: 640px) {
+    .slogan h1 {
+      font-size: 5rem;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .slogan h1 {
+      font-size: 6rem;
+    }
+  }
+  
+  .slogan p {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    color: inherit; /* Use the inherited color from .hero-content */
+  }
+  

@@ -1,22 +1,34 @@
-import { Col, Container, Image, Nav, Row } from "react-bootstrap";
+import React from "react";
+import HomePage from "./pages/HomePage";
+import {
+  Route,
+  createBrowserRouter,
+  RouterProvider,
+  createRoutesFromElements,
+} from "react-router-dom";
+import NavLayout from "./layouts/NavLayout";
+import BooksPage from "./pages/BooksPage";
+import AddBook from "./pages/AddBook";
+import AboutUs from "./pages/AboutUs";
+import Login from "./pages/Login";
+import NotFoundPage from "./pages/NotFoundPage";
 
-function App() {
-  return (
-    <Container>
-      <Image
-        src="https://static.wixstatic.com/media/2524ce_cb266239a431485aa92c419e50505f7a~mv2.png"
-        className="mx-auto d-block"
-      />
-      <Row>
-        <h1 className="text-center">HYF Frontend template</h1>
-        <Col>
-          <Nav.Link href="/recipes" className="text-center">
-            Recipes List
-          </Nav.Link>
-        </Col>
-      </Row>
-    </Container>
-  );
-}
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route path="/" element={<NavLayout />}>
+      <Route path='/' element={<HomePage />}/>
+      <Route path='/books' element={<BooksPage />}/>
+      <Route path='/add-book' element={<AddBook />}/>
+      <Route path='/about' element={<AboutUs />}/>
+      <Route path='/login' element={<Login />}/>
+      <Route path='*' element={<NotFoundPage/>}/>
+
+    </Route>
+  )
+);
+
+const App = () => {
+  return <RouterProvider router={router} />;
+};
 
 export default App;

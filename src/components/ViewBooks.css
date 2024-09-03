@@ -1,0 +1,18 @@
+.view-books {
+text-align: center;
+background-color: rgb(239, 248, 252);
+
+}
+
+.book-link {
+    font-size: 25px;
+    color: black; 
+    text-decoration: none;
+    padding: 3px 3px 3px 3px;
+    background-color: rgb(183, 225, 244);
+    border-radius: 10%;
+    border: rgb(0, 0, 0) solid 2px;
+}
+.book-link:hover {
+    background-color: #1d7b90; 
+}
