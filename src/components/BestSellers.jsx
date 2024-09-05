@@ -11,7 +11,7 @@ const BestSellers = () => {
   const [bestBooks, setBestBooks] = useState(null);
 
   useEffect(() => {
-    Api("best")
+    Api("books/best")
       .then((data) => {
         setBestBooks(data);
       })
