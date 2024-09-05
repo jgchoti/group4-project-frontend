@@ -10,11 +10,24 @@
 
 // export default Api;
 
-const Api = async (endpoint) => {
+const Api = async (endpoint, method = "GET", body = null, token = null) => {
     const apiUrl = import.meta.env.VITE_API_URL;
-    console.log("url", apiUrl)
+    console.log("API URL:", apiUrl);
+
+    const options = {
+        method,
+        headers: {
+            ...(body instanceof FormData ? {} : { "Content-Type": "application/json" }),
+            ...(token ? { Authorization: `Bearer ${token}` } : {}),
+        },
+    };
+
+    if (body && method !== 'GET') {
+        options.body = body;
+    }
+
     try {
-        const response = await fetch(`${apiUrl}/${endpoint}`);
+        const response = await fetch(`${apiUrl}/${endpoint}`, options);
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
