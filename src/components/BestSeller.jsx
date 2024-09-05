@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import './BestSeller.css';
+import "./BestSeller.css";
 
 const BestSeller = ({ book, image }) => {
   const [showMore, setShowMore] = useState(false);
