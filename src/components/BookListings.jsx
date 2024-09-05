@@ -10,7 +10,7 @@ const BookListings = () => {
   const [books, setBooks] = useState(null);
 
   useEffect(() => {
-    Api("books")
+    Api("books/all")
       .then((data) => {
         setBooks(data);
       })
