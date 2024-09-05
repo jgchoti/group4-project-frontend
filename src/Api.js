@@ -14,17 +14,18 @@ const Api = async (endpoint, method = "GET", body = null, token = null) => {
     const apiUrl = import.meta.env.VITE_API_URL;
     console.log("API URL:", apiUrl);
 
-    const options = {
-        method,
-        headers: {
-            ...(body instanceof FormData ? {} : { "Content-Type": "application/json" }),
-            ...(token ? { Authorization: `Bearer ${token}` } : {}),
-        },
+    const headers = {
+        ...(body instanceof FormData ? {} : { "Content-Type": "application/json" }),
+        ...(token ? { Authorization: `Bearer ${token}` } : {}),
     };
 
-    if (body && method !== 'GET') {
-        options.body = body;
-    }
+    const options = {
+        method,
+        headers,
+        ...(body && method !== 'GET' ? { body: body instanceof FormData ? body : JSON.stringify(body) } : {}),
+    };
+
+    console.log("Options:", options);
 
     try {
         const response = await fetch(`${apiUrl}/${endpoint}`, options);
