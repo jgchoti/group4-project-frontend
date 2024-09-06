@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Api from "../Api";
 
-const UploadImage = ({ token }) => {
+const UploadImage = ({ token, handleImageUpload }) => {
   const [image, setImage] = useState(null);
   const [previewUrl, setPreviewUrl] = useState(null);
   const [uploading, setUploading] = useState(false);
@@ -16,7 +16,7 @@ const UploadImage = ({ token }) => {
     }
   };
 
-  const handleSubmit = async (e) => {
+  const handleUpload = async (e) => {
     e.preventDefault();
     if (!image) return; // Do nothing if no image is selected
     setUploading(true);
@@ -29,6 +29,7 @@ const UploadImage = ({ token }) => {
       setUploading(false);
       setUploadMessage("Upload successful!");
       console.log("Uploaded Image URL:", result.imageUrl);
+      handleImageUpload(result.imageUrl);
     } catch (error) {
       setUploading(false);
       setUploadMessage("Upload failed.");
@@ -39,15 +40,17 @@ const UploadImage = ({ token }) => {
   return (
     <div>
       <h3>Upload Book Image</h3>
-      <form onSubmit={handleSubmit}>
-        <input type="file" onChange={handleFileChange} />
-        {previewUrl && (
-          <img src={previewUrl} alt="Preview" style={{ width: "200px" }} />
-        )}
-        <button type="submit" disabled={!image || uploading}>
-          {uploading ? "Uploading..." : "Upload Image"}
-        </button>
-      </form>
+      <input type="file" onChange={handleFileChange} />
+      {previewUrl && (
+        <img src={previewUrl} alt="Preview" style={{ width: "200px" }} />
+      )}
+      <button
+        type="button"
+        onClick={handleUpload}
+        disabled={!image || uploading}
+      >
+        {uploading ? "Uploading..." : "Upload Image"}
+      </button>
       {uploadMessage && <p>{uploadMessage}</p>}
     </div>
   );
