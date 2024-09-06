@@ -13,6 +13,8 @@
 const Api = async (endpoint, method = "GET", body = null, token = null) => {
     const apiUrl = import.meta.env.VITE_API_URL;
     console.log("API URL:", apiUrl);
+    console.log("Endpoint:", endpoint);
+
 
     const headers = {
         ...(body instanceof FormData ? {} : { "Content-Type": "application/json" }),
