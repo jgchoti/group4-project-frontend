@@ -18,11 +18,11 @@ const BestSellers = () => {
       .catch((error) => console.error("Error:", error));
   }, []);
 
-  const images = {
-    "rich.jpg": rich,
-    "habits.jpg": habits,
-    "mockingbird.jpg": mockingbird,
-  };
+  // const images = {
+  //   "rich.jpg": rich,
+  //   "habits.jpg": habits,
+  //   "mockingbird.jpg": mockingbird,
+  // };
   if (!bestBooks) {
     return <div>Loading...</div>;
   }
@@ -36,7 +36,7 @@ const BestSellers = () => {
           <BestSeller
             key={book.id}
             book={book}
-            image={images[book.image]} // Pass the resolved image URL here
+            image={book.image} // Pass the resolved image URL here
           />
         ))}
       </div>
