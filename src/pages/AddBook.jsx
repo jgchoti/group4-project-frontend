@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import UploadImage from "../components/UploadImage";
 import { NavLink } from "react-router-dom";
+import AddBookForm from "../components/AddBookForm";
 
 const AddBook = () => {
   const [token, setToken] = useState(null);
@@ -22,7 +22,7 @@ const AddBook = () => {
   return (
     <div>
       <h1>Add a Book</h1>
-      <UploadImage token={token} />
+      <AddBookForm token={token} />
     </div>
   );
 };
