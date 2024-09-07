@@ -23,7 +23,7 @@ const BestSeller = ({ book, image }) => {
             <h3>Genre:</h3>
             <p>{book.genre}</p>
             <h3>Price:</h3>
-            <p>{book.price}</p>
+            <p>€{book.price}</p>
           </>
         )}
         <button onClick={toggleShowMore} className="toggle-button">

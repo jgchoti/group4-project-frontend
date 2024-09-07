@@ -90,7 +90,7 @@ const AddBookForm = ({ token }) => {
             required
           />
 
-          <label>Price:</label>
+          <label>Price(€):</label>
           <input
             type="number"
             name="price"
