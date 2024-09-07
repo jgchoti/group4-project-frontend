@@ -3,16 +3,21 @@ import LoginForm from "../components/LoginForm";
 
 const Login = () => {
   const [loginSuccess, setLoginSuccess] = useState(false);
+  const [user, setUser] = useState(null);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
-    setLoginSuccess(Boolean(token));
+    if (token) {
+      const userData = JSON.parse(localStorage.getItem("user"));
+      setUser(userData);
+      setLoginSuccess(true);
+    }
   }, []);
 
-  if (loginSuccess) {
+  if (loginSuccess && user) {
     return (
       <div>
-        <h1>Welcome!</h1>
+        <h1>Welcome! {user.username}</h1>
       </div>
     );
   }
