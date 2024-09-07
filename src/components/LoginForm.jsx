@@ -24,7 +24,8 @@ const LoginForm = () => {
     setError("");
     try {
       const data = await Api("users/login", "POST", formData);
-      localStorage.setItem("token", data.token);
+      localStorage.setItem("token", data.token); // Save token in local storage
+      localStorage.setItem("user", JSON.stringify(data.user)); // Save user data in local storage
       console.log("Login successful:", data);
       setLoginSuccess(true);
     } catch (error) {
