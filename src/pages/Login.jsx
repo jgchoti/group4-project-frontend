@@ -1,9 +1,36 @@
-import React from 'react'
+import React, { useState, useEffect } from "react";
+import LoginForm from "../components/LoginForm";
 
 const Login = () => {
-  return (
-    <div>Login</div>
-  )
-}
+  const [loginSuccess, setLoginSuccess] = useState(false);
+  const [user, setUser] = useState(null);
 
-export default Login
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      const userData = JSON.parse(localStorage.getItem("user"));
+      setUser(userData);
+      setLoginSuccess(true);
+    }
+  }, []);
+
+  if (loginSuccess && user) {
+    return (
+      <div>
+        <h1>Welcome! {user.username}</h1>
+      </div>
+    );
+  }
+
+  return (
+    <div>
+      <h1>Login</h1>
+      <LoginForm />
+      <p>
+        Don't have an account? <a href="/register">Register</a>
+      </p>
+    </div>
+  );
+};
+
+export default Login;
