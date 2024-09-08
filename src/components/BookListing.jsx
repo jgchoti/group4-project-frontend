@@ -26,9 +26,9 @@ const BookListing = ({ book, image }) => {
             <h3>Price:</h3>
             <p>€{book.price}</p>
             <h3>Email Address:</h3>
-            <p>{book.email}</p>
+            <p>{book.seller_email}</p>
             <h3>Phone Number:</h3>
-            <p>{book.phone}</p>
+            <p>{book.seller_phonenumber}</p>
             <h3>Location:</h3>
             <p>{book.city}</p>
             <h3>Delivery Method:</h3>
