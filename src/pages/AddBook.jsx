@@ -13,7 +13,7 @@ const AddBook = () => {
   if (!token) {
     return (
       <div>
-        <p>Please log in to upload images.</p>
+        <p>Please log in to add a book</p>
         <NavLink to="/login">Login</NavLink>
       </div>
     );
