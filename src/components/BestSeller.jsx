@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import './BestSeller.css';
+import "./BestSeller.css";
 
 const BestSeller = ({ book, image }) => {
   const [showMore, setShowMore] = useState(false);
@@ -23,7 +23,7 @@ const BestSeller = ({ book, image }) => {
             <h3>Genre:</h3>
             <p>{book.genre}</p>
             <h3>Price:</h3>
-            <p>{book.price}</p>
+            <p>€{book.price}</p>
           </>
         )}
         <button onClick={toggleShowMore} className="toggle-button">
