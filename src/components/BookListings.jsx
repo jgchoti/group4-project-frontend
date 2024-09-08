@@ -1,32 +1,32 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./BookListings.css";
-import george from "../assets/george.jpg";
-import orientalism from '../assets/orientalism.jpg';
-import secret from '../assets/secret.jpg';
 import BookListing from "./BookListing";
-import books from '../books.json'
+import Api from "../Api";
 
 const BookListings = () => {
-  const images = {
-    'george.jpg': george,
-    'orientalism.jpg': orientalism,
-    'secret.jpg': secret
-  };
+  const [books, setBooks] = useState(null);
 
-  const recentBooks = books.slice(0,3);
+  useEffect(() => {
+    Api("books/recent")
+      .then((data) => {
+        setBooks(data);
+      })
+      .catch((error) => console.error("Error:", error));
+  }, []);
+  console.log(books);
+
+  if (!books) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <section className="book-listings">
-        <div className="recent">
-          <h1> Recently Added Books </h1>
-        </div>
+      <div className="recent">
+        <h1> Recently Added Books </h1>
+      </div>
       <div className="book-listings-container">
-        {recentBooks.map((book) => (
-          <BookListing
-            key={book.id}
-            book={book}
-            image={images[book.image]}  
-          />
+        {books.map((book) => (
+          <BookListing key={book.id} book={book} image={book.image} />
         ))}
       </div>
     </section>
@@ -34,4 +34,3 @@ const BookListings = () => {
 };
 
 export default BookListings;
-
