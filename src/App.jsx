@@ -12,17 +12,18 @@ import AddBook from "./pages/AddBook";
 import AboutUs from "./pages/AboutUs";
 import Login from "./pages/Login";
 import NotFoundPage from "./pages/NotFoundPage";
+import Register from "./pages/Register";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<NavLayout />}>
-      <Route path='/' element={<HomePage />}/>
-      <Route path='/books' element={<BooksPage />}/>
-      <Route path='/add-book' element={<AddBook />}/>
-      <Route path='/about' element={<AboutUs />}/>
-      <Route path='/login' element={<Login />}/>
-      <Route path='*' element={<NotFoundPage/>}/>
-
+      <Route path="/" element={<HomePage />} />
+      <Route path="/books" element={<BooksPage />} />
+      <Route path="/add-book" element={<AddBook />} />
+      <Route path="/about" element={<AboutUs />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/register" element={<Register />} />
+      <Route path="*" element={<NotFoundPage />} />
     </Route>
   )
 );
