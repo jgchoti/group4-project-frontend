@@ -60,7 +60,7 @@ const AddBookForm = ({ token }) => {
             value={formData.title}
             onChange={handleInputChange}
             label="Title:"
-            required
+            required={true}
           />
 
           <InputField
@@ -69,7 +69,7 @@ const AddBookForm = ({ token }) => {
             value={formData.author}
             onChange={handleInputChange}
             label="Author:"
-            required
+            required={true}
           />
 
           <InputField
@@ -78,7 +78,7 @@ const AddBookForm = ({ token }) => {
             value={formData.genre}
             onChange={handleInputChange}
             label="Genre:"
-            required
+            required={true}
           />
 
           <InputField
@@ -87,7 +87,7 @@ const AddBookForm = ({ token }) => {
             value={formData.book_condition}
             onChange={handleInputChange}
             label="Condition:"
-            required
+            required={true}
           />
 
           <InputField
@@ -98,7 +98,7 @@ const AddBookForm = ({ token }) => {
             label="Price (€):"
             min="0"
             step="0.01"
-            required
+            required={true}
           />
 
           <InputField
@@ -107,7 +107,7 @@ const AddBookForm = ({ token }) => {
             value={formData.city}
             onChange={handleInputChange}
             label="City:"
-            required
+            required={true}
           />
 
           <InputField
@@ -116,7 +116,7 @@ const AddBookForm = ({ token }) => {
             value={formData.delivery}
             onChange={handleInputChange}
             label="Delivery Info:"
-            required
+            required={true}
           />
 
           <div className="input-field">
