@@ -15,7 +15,6 @@ const Api = async (endpoint, method = "GET", body = null, token = null) => {
     console.log("API URL:", apiUrl);
     console.log("Endpoint:", endpoint);
 
-
     const headers = {
         ...(body instanceof FormData ? {} : { "Content-Type": "application/json" }),
         ...(token ? { Authorization: `Bearer ${token}` } : {}),
