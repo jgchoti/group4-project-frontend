@@ -17,6 +17,7 @@ const LoginForm = () => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log("Form submitted:", formData);
@@ -34,6 +35,7 @@ const LoginForm = () => {
       setLoading(false);
     }
   };
+
   if (loginSuccess) {
     return (
       <div>
@@ -42,6 +44,7 @@ const LoginForm = () => {
       </div>
     );
   }
+
   return (
     <div className="login-form-container">
       <form onSubmit={handleSubmit} className="login-form">
@@ -52,6 +55,8 @@ const LoginForm = () => {
           value={formData.email}
           onChange={handleChange}
           placeholder="Email"
+          label="Email:"
+          required={true}
         />
         <InputField
           type="password"
@@ -59,6 +64,8 @@ const LoginForm = () => {
           value={formData.password}
           onChange={handleChange}
           placeholder="Password"
+          label="Password:"
+          required={true}
         />
         <button type="submit">Login</button>
       </form>
