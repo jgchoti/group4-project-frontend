@@ -12,8 +12,6 @@ const AddBookForm = ({ token }) => {
     genre: "",
     book_condition: "",
     price: "",
-    email: "",
-    phone: "",
     city: "",
     delivery: "",
     information: "",
@@ -98,24 +96,6 @@ const AddBookForm = ({ token }) => {
             onChange={handleInputChange}
             min="0"
             step="0.01" // Allows decimal values
-            required
-          />
-
-          <label>Email:</label>
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleInputChange}
-            required
-          />
-
-          <label>Phone:</label>
-          <input
-            type="text"
-            name="phone"
-            value={formData.phone}
-            onChange={handleInputChange}
             required
           />
 
