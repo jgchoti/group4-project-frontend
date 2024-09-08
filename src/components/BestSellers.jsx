@@ -8,12 +8,13 @@ import BestSeller from "./BestSeller";
 import Api from "../Api";
 
 const BestSellers = () => {
-  const [bestBooks, setBestBooks] = useState(null);
+  const [bestSellerBooks, setBestSellerBooks] = useState(null);
 
   useEffect(() => {
     Api("books/best")
       .then((data) => {
-        setBestBooks(data);
+        console.log("Best Books:", data);
+        setBestSellerBooks(data);
       })
       .catch((error) => console.error("Error:", error));
   }, []);
@@ -23,7 +24,7 @@ const BestSellers = () => {
   //   "habits.jpg": habits,
   //   "mockingbird.jpg": mockingbird,
   // };
-  if (!bestBooks) {
+  if (!bestSellerBooks) {
     return <div>Loading...</div>;
   }
   return (
@@ -32,7 +33,7 @@ const BestSellers = () => {
         <h1> Best Seller Books </h1>
       </div>
       <div className="book-listings-container">
-        {bestBooks.map((book) => (
+        {bestSellerBooks.map((book) => (
           <BestSeller
             key={book.id}
             book={book}
