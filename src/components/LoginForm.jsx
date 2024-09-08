@@ -43,23 +43,29 @@ const LoginForm = () => {
     );
   }
   return (
-    <form onSubmit={handleSubmit} className="login-form">
-      <InputField
-        type="email"
-        name="email"
-        value={formData.email}
-        onChange={handleChange}
-        placeholder="Email"
-      />
-      <InputField
-        type="password"
-        name="password"
-        value={formData.password}
-        onChange={handleChange}
-        placeholder="Password"
-      />
-      <button type="submit">Login</button>
-    </form>
+    <div className="login-form-container">
+      <form onSubmit={handleSubmit} className="login-form">
+        {error && <p className="error">{error}</p>}
+        <InputField
+          type="email"
+          name="email"
+          value={formData.email}
+          onChange={handleChange}
+          placeholder="Email"
+        />
+        <InputField
+          type="password"
+          name="password"
+          value={formData.password}
+          onChange={handleChange}
+          placeholder="Password"
+        />
+        <button type="submit">Login</button>
+      </form>
+      <p>
+        Do not have an account? <NavLink to="/register">Register</NavLink>
+      </p>
+    </div>
   );
 };
 
