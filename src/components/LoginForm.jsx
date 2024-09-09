@@ -17,6 +17,7 @@ const LoginForm = () => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log("Form submitted:", formData);
@@ -34,6 +35,7 @@ const LoginForm = () => {
       setLoading(false);
     }
   };
+
   if (loginSuccess) {
     return (
       <div>
@@ -42,24 +44,35 @@ const LoginForm = () => {
       </div>
     );
   }
+
   return (
-    <form onSubmit={handleSubmit} className="login-form">
-      <InputField
-        type="email"
-        name="email"
-        value={formData.email}
-        onChange={handleChange}
-        placeholder="Email"
-      />
-      <InputField
-        type="password"
-        name="password"
-        value={formData.password}
-        onChange={handleChange}
-        placeholder="Password"
-      />
-      <button type="submit">Login</button>
-    </form>
+    <div className="login-form-container">
+      <form onSubmit={handleSubmit} className="login-form">
+        {error && <p className="error">{error}</p>}
+        <InputField
+          type="email"
+          name="email"
+          value={formData.email}
+          onChange={handleChange}
+          placeholder="Email"
+          label="Email:"
+          required={true}
+        />
+        <InputField
+          type="password"
+          name="password"
+          value={formData.password}
+          onChange={handleChange}
+          placeholder="Password"
+          label="Password:"
+          required={true}
+        />
+        <button type="submit">Login</button>
+      </form>
+      <p>
+        Do not have an account? <NavLink to="/register">Register</NavLink>
+      </p>
+    </div>
   );
 };
 
