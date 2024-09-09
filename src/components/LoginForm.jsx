@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
 import InputField from "./InputField";
 import Api from "../Api";
 
@@ -12,6 +12,14 @@ const LoginForm = () => {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const [loginSuccess, setLoginSuccess] = useState(false);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      setLoginSuccess(true);
+    }
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -36,14 +44,11 @@ const LoginForm = () => {
     }
   };
 
-  if (loginSuccess) {
-    return (
-      <div>
-        <p>Login successful!</p>
-        <NavLink to="/">Return to Home</NavLink>
-      </div>
-    );
-  }
+  useEffect(() => {
+    if (loginSuccess) {
+      navigate("/");
+    }
+  }, [loginSuccess, navigate]);
 
   return (
     <div className="login-form-container">
