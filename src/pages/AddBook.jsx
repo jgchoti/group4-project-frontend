@@ -1,9 +1,30 @@
-import React from 'react'
+import React, { useState, useEffect } from "react";
+import { NavLink } from "react-router-dom";
+import AddBookForm from "../components/AddBookForm";
 
 const AddBook = () => {
-  return (
-    <div>AddBook</div>
-  )
-}
+  const [token, setToken] = useState(null);
 
-export default AddBook
+  useEffect(() => {
+    const savedToken = localStorage.getItem("token");
+    setToken(savedToken);
+  }, []);
+
+  if (!token) {
+    return (
+      <div>
+        <p>Please log in to add a book</p>
+        <NavLink to="/login">Login</NavLink>
+      </div>
+    );
+  }
+
+  return (
+    <div>
+      <h1>Add a Book</h1>
+      <AddBookForm token={token} />
+    </div>
+  );
+};
+
+export default AddBook;
