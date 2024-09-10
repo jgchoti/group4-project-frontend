@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import Api from "../Api";
 import UploadImage from "./UploadImage";
+import InputField from "./InputField";
+
 const DEFAULT_IMAGE_URL =
   "http://cdn.bakerpublishinggroup.com/covers/listing/missing.png";
 
@@ -52,77 +54,80 @@ const AddBookForm = ({ token }) => {
       {message && <p>{message}</p>}
       {!bookAdded ? (
         <form onSubmit={handleSubmit}>
-          <label>Title:</label>
-          <input
+          <InputField
             type="text"
             name="title"
             value={formData.title}
             onChange={handleInputChange}
-            required
+            label="Title:"
+            required={true}
           />
 
-          <label>Author:</label>
-          <input
+          <InputField
             type="text"
             name="author"
             value={formData.author}
             onChange={handleInputChange}
-            required
+            label="Author:"
+            required={true}
           />
 
-          <label>Genre:</label>
-          <input
+          <InputField
             type="text"
             name="genre"
             value={formData.genre}
             onChange={handleInputChange}
-            required
+            label="Genre:"
+            required={true}
           />
 
-          <label>Condition:</label>
-          <input
+          <InputField
             type="text"
             name="book_condition"
             value={formData.book_condition}
             onChange={handleInputChange}
-            required
+            label="Condition:"
+            required={true}
           />
 
-          <label>Price(€):</label>
-          <input
+          <InputField
             type="number"
             name="price"
             value={formData.price}
             onChange={handleInputChange}
+            label="Price (€):"
             min="0"
-            step="0.01" // Allows decimal values
-            required
+            step="0.01"
+            required={true}
           />
 
-          <label>City:</label>
-          <input
+          <InputField
             type="text"
             name="city"
             value={formData.city}
             onChange={handleInputChange}
-            required
+            label="City:"
+            required={true}
           />
 
-          <label>Delivery Info:</label>
-          <input
+          <InputField
             type="text"
             name="delivery"
             value={formData.delivery}
             onChange={handleInputChange}
-            required
+            label="Delivery Info:"
+            required={true}
           />
 
-          <label>Additional Information:</label>
-          <textarea
-            name="information"
-            value={formData.information}
-            onChange={handleInputChange}
-          />
+          <div className="input-field">
+            <label htmlFor="information">Additional Information:</label>
+            <textarea
+              id="information"
+              name="information"
+              value={formData.information}
+              onChange={handleInputChange}
+            />
+          </div>
 
           <UploadImage token={token} handleImageUpload={handleImageUpload} />
 
