@@ -1,8 +1,5 @@
 import React, { useEffect, useState } from "react";
 import "./BookListings.css";
-import george from "../assets/george.jpg";
-import orientalism from "../assets/orientalism.jpg";
-import secret from "../assets/secret.jpg";
 import BookListing from "./BookListing";
 import Api from "../Api";
 
@@ -17,6 +14,10 @@ const BookListings = () => {
       .catch((error) => console.error("Error:", error));
   }, []);
   console.log(books);
+
+  if (!books) {
+    return <div>Loading...</div>;
+  }
 
   // const images = {
   //   "george.jpg": george,
