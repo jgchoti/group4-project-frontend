@@ -19,17 +19,6 @@ const BookListings = () => {
     return <div>Loading...</div>;
   }
 
-  // const images = {
-  //   "george.jpg": george,
-  //   "orientalism.jpg": orientalism,
-  //   "secret.jpg": secret,
-  // };
-
-  if (!books) {
-    return <div>Loading...</div>;
-  }
-
-  // const recentBooks = books.slice(0, 3);
   return (
     <section className="book-listings">
       <div className="recent">
