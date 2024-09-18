@@ -1,72 +1,91 @@
-
-  
+/* Estilos originales del navbar */
 .navbar {
-    background-color: #95bfd4;
-  
-  }
-  
-  .nav-content {
-    display: flex;
-    height: 5rem;
-    align-items: center;
-    justify-content: space-between;
-  }
-  
-  .logo-container {
-    display: flex;
-    flex: 1;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .logo-link {
-    display: flex;
-    flex-shrink: 0;
-    align-items: center;
-    margin-right: 1rem;
-    text-decoration: none;
-  }
-  
-  .logo-img {
-    height: 3.5rem;
-    border-radius: 50%;
-    width: auto;
-  }
-  
+  background-color: #95bfd4;
+}
+
+.nav-content {
+  display: flex;
+  height: 5rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo-container {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-link {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  margin-right: 1rem;
+  text-decoration: none;
+}
+
+.logo-img {
+  height: 3.5rem;
+  border-radius: 50%;
+  width: auto;
+}
+
+.logo-text {
+  display: none;
+  color: #070707;
+  font-size: 1.7rem;
+  font-weight: bold;
+  margin-left: 0.5rem;
+}
+
+@media (min-width: 768px) {
   .logo-text {
-    display: none;
-    color:  #070707;
-    font-size: 1.7rem;
-    font-weight: bold;
-    margin-left: 0.5rem;
+    display: block;
   }
-  
-  @media (min-width: 768px) {
-    .logo-text {
-      display: block;
-    }
-  }
-  
-  .nav-links {
-    margin-left: auto;
-  }
-  
+}
+
+/* Enlaces de navegación */
+.nav-links {
+  margin-left: auto;
+}
+
+.links {
+  display: flex;
+  gap: 0.6rem;
+}
+
+/* Estilo base para los enlaces */
+.nav-link {
+  color: #fffcfc;
+  background-color: #050505;
+  border-radius: 0.375rem;
+  padding: 0.75rem 1rem;
+  text-align: center;
+  transition: background-color 0.3s;
+  text-decoration: none;
+}
+
+/* Efecto hover */
+.nav-link:hover {
+  background-color: #1f2937;
+  color: #ffffff;
+}
+
+/* Modificación: Estilo activo para los enlaces */
+.active {
+  background-color: #5466dd;
+  color: #f0e5e5;
+}
+
+/* Modificación: Responsivo */
+@media (max-width: 768px) {
   .links {
-    display: flex;
-    gap: 0.6rem;
+    flex-direction: column;
+    gap: 1rem;
   }
-  
+
   .nav-link {
-    color:  #5466dd;
-    background-color: #050505;
-    border-radius: 0.375rem;
-    padding: 0.75rem 1rem;
-    text-align: center;
-    transition: background-color 0.3s;
-    text-decoration: none;
+    margin: 0.5rem 0;
   }
-  
-  .nav-link:hover {
-    background-color: #1f2937;
-    color: #ffffff;
-  }
+}

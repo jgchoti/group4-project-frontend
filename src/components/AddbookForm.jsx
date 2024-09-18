@@ -1,143 +1,99 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
-import Api from "../Api";
-import UploadImage from "./UploadImage";
-import InputField from "./InputField";
+import '../components/styles/AddBook.css'; // Asegurarse de cargar el CSS adecuado
 
-const DEFAULT_IMAGE_URL =
-  "http://cdn.bakerpublishinggroup.com/covers/listing/missing.png";
-
-const AddBookForm = ({ token }) => {
-  const [formData, setFormData] = useState({
-    title: "",
-    author: "",
-    genre: "",
-    book_condition: "",
-    price: "",
-    city: "",
-    delivery: "",
-    information: "",
-    image: "",
+const AddBook = () => {
+  const [bookData, setBookData] = useState({
+    title: '',
+    author: '',
+    genre: '',
+    condition: '',
+    price: '',
+    email: '',
+    city: '',
+    phone: '',
+    delivery: '',
   });
-  const [message, setMessage] = useState("");
-  const [bookAdded, setBookAdded] = useState(false);
 
-  const handleInputChange = (e) => {
+  const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData((prevData) => ({ ...prevData, [name]: value }));
+    setBookData({ ...bookData, [name]: value });
   };
 
-  const handleImageUpload = (image) => {
-    setFormData((prevData) => ({ ...prevData, image }));
-  };
-
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    const data = {
-      ...formData,
-      image: formData.image || DEFAULT_IMAGE_URL,
-    };
-    try {
-      const response = await Api("books/add", "POST", data, token);
-      console.log("Book added successfully:", response);
-      setMessage("Book added successfully!");
-      setBookAdded(true);
-    } catch (error) {
-      setMessage("Failed to add book, please try again.");
-      console.error("Error adding book:", error);
-    }
+    // Lógica para enviar los datos del libro al servidor (aquí conectarías con tu backend)
+    console.log(bookData);
   };
 
   return (
-    <div className="add-book-form">
-      <h2>Add a Book</h2>
-      {message && <p>{message}</p>}
-      {!bookAdded ? (
-        <form onSubmit={handleSubmit}>
-          <InputField
+    <div className="add-book-container">
+      <h1 className="form-title">Add a New Book</h1>
+      <form onSubmit={handleSubmit} className="add-book-form">
+        {/* Primera columna */}
+        <div className="form-column">
+          <label htmlFor="title">Title</label>
+          <input
             type="text"
+            id="title"
             name="title"
-            value={formData.title}
-            onChange={handleInputChange}
-            label="Title:"
-            required={true}
+            value={bookData.title}
+            onChange={handleChange}
           />
 
-          <InputField
+          <label htmlFor="author">Author</label>
+          <input
             type="text"
+            id="author"
             name="author"
-            value={formData.author}
-            onChange={handleInputChange}
-            label="Author:"
-            required={true}
+            value={bookData.author}
+            onChange={handleChange}
           />
 
-          <InputField
+          <label htmlFor="genre">Genre</label>
+          <input
             type="text"
+            id="genre"
             name="genre"
-            value={formData.genre}
-            onChange={handleInputChange}
-            label="Genre:"
-            required={true}
+            value={bookData.genre}
+            onChange={handleChange}
           />
+        </div>
 
-          <InputField
-            type="text"
-            name="book_condition"
-            value={formData.book_condition}
-            onChange={handleInputChange}
-            label="Condition:"
-            required={true}
-          />
-
-          <InputField
+        {/* Segunda columna */}
+        <div className="form-column">
+          <label htmlFor="price">Price</label>
+          <input
             type="number"
+            id="price"
             name="price"
-            value={formData.price}
-            onChange={handleInputChange}
-            label="Price (€):"
-            min="0"
-            step="0.01"
-            required={true}
+            value={bookData.price}
+            onChange={handleChange}
           />
 
-          <InputField
+          <label htmlFor="city">City</label>
+          <input
             type="text"
+            id="city"
             name="city"
-            value={formData.city}
-            onChange={handleInputChange}
-            label="City:"
-            required={true}
+            value={bookData.city}
+            onChange={handleChange}
           />
 
-          <InputField
+          <label htmlFor="delivery">Delivery Option</label>
+          <input
             type="text"
+            id="delivery"
             name="delivery"
-            value={formData.delivery}
-            onChange={handleInputChange}
-            label="Delivery Info:"
-            required={true}
+            value={bookData.delivery}
+            onChange={handleChange}
           />
+        </div>
 
-          <div className="input-field">
-            <label htmlFor="information">Additional Information:</label>
-            <textarea
-              id="information"
-              name="information"
-              value={formData.information}
-              onChange={handleInputChange}
-            />
-          </div>
-
-          <UploadImage token={token} handleImageUpload={handleImageUpload} />
-
-          <button type="submit">Add Book</button>
-        </form>
-      ) : (
-        <NavLink to="/">Return to Home</NavLink>
-      )}
+        {/* Botón de envío */}
+        <button type="submit" className="submit-btn">Submit</button>
+      </form>
     </div>
   );
 };
 
-export default AddBookForm;
+export default AddBook;

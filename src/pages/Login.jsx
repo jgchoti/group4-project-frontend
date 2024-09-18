@@ -1,34 +1,36 @@
-import React, { useState, useEffect } from "react";
-import LoginForm from "../components/LoginForm";
-import Logout from "../components/Logout";
-
+import React, { useState, useEffect, useContext } from "react";
+import LoginForm from "../components/LoginForm"; // Importar componente LoginForm
+import { AuthContext } from "../context/AuthContext"; // Importar contexto de autenticación
+import { useNavigate } from 'react-router-dom';
+import '../components/styles/Login.css'; // Asegurarse de cargar el CSS adecuado
 
 const Login = () => {
+  const { login } = useContext(AuthContext); // Obtener la función login del contexto
   const [loginSuccess, setLoginSuccess] = useState(false);
-  const [user, setUser] = useState(null);
+  const [errorMessage, setErrorMessage] = useState('');
+  const navigate = useNavigate();
 
   useEffect(() => {
-    const token = localStorage.getItem("token");
-    if (token) {
-      const userData = JSON.parse(localStorage.getItem("user"));
-      setUser(userData);
-      setLoginSuccess(true);
+    if (loginSuccess) {
+      alert('Welcome! Login successful.'); // Mostrar mensaje pop-up de éxito
+      navigate('/'); // Redirigir al home
     }
-  }, []);
+  }, [loginSuccess, navigate]);
 
-  if (loginSuccess && user) {
-    return (
-      <div>
-        <h1>Welcome! {user.username}</h1>
-        <Logout />
-      </div>
-    );
-  }
+  const handleLogin = async (email, password) => {
+    try {
+      await login(email, password); // Intentar iniciar sesión
+      setLoginSuccess(true); // Si el login es exitoso
+    } catch (error) {
+      setErrorMessage('Login failed. Please check your credentials.'); // Mostrar mensaje de error
+    }
+  };
 
   return (
-    <div>
-      <h1>Login</h1>
-      <LoginForm />
+    <div className="form-container">
+      <h1 className="form-title">Login</h1>
+      {errorMessage && <p className="error">{errorMessage}</p>}
+      <LoginForm onLogin={handleLogin} />
     </div>
   );
 };
