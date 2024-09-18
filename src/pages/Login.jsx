@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import '../components/styles/Login.css'; // Asegurarse de cargar el CSS adecuado
 
 const Login = () => {
-  const { login } = useContext(AuthContext); // Obtener la función login del contexto
+  const { login, error } = useContext(AuthContext); // Obtener la función login del contexto
   const [loginSuccess, setLoginSuccess] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
   const navigate = useNavigate();
@@ -30,6 +30,7 @@ const Login = () => {
     <div className="form-container">
       <h1 className="form-title">Login</h1>
       {errorMessage && <p className="error">{errorMessage}</p>}
+      {error && <p className="error">{error}</p>} {/* Mostrar errores del contexto */}
       <LoginForm onLogin={handleLogin} />
     </div>
   );

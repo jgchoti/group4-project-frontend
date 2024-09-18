@@ -13,6 +13,7 @@ import AboutUs from "./pages/AboutUs";
 import Login from "./pages/Login";
 import NotFoundPage from "./pages/NotFoundPage";
 import Register from "./pages/Register";
+import { AuthProvider } from "./context/AuthContext"; // Asegurarse de importar el AuthProvider
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -29,7 +30,11 @@ const router = createBrowserRouter(
 );
 
 const App = () => {
-  return <RouterProvider router={router} />;
+  return (
+    <AuthProvider> {/* Envolver la aplicación con AuthProvider */}
+      <RouterProvider router={router} />
+    </AuthProvider>
+  );
 };
 
 export default App;
