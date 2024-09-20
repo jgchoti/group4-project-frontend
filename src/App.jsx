@@ -15,6 +15,7 @@ import NotFoundPage from "./pages/NotFoundPage";
 import Register from "./pages/Register";
 import BookDetailPage from "./pages/BookDetailPage";
 import EditBook from "./pages/EditBook";
+import SearchResultPage from "./pages/SearchResultPage";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -28,6 +29,7 @@ const router = createBrowserRouter(
       <Route path="*" element={<NotFoundPage />} />
       <Route path="/books/:id" element={<BookDetailPage />} />
       <Route path="/edit/:id" element={<EditBook />} />
+      <Route path="/search-result" element={<SearchResultPage />} />
     </Route>
   )
 );
