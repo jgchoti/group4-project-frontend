@@ -1,9 +1,13 @@
-import React from 'react'
+import React from "react";
+import AllBooksListing from "../components/AllBooksListing";
 
 const BooksPage = () => {
   return (
-    <div>BooksPage</div>
-  )
-}
+    <div>
+      <h1>All Books</h1>
+      <AllBooksListing />
+    </div>
+  );
+};
 
-export default BooksPage
+export default BooksPage;
