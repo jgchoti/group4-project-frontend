@@ -1,10 +1,17 @@
 .button-container {
   display: flex;
-  align-items: center;
+  margin: 0 auto;
+  width: 50%;
+}
+
+.button-container a {
+  text-decoration: none;
+  color: #0c0c0c;
 }
 
 .button {
-  margin: 40px auto;
+  flex: 1;
+  margin: 40px 80px;
   text-align: center;
   background-color: #a2cde3;
   color: #0c0c0c;
