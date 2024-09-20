@@ -41,9 +41,10 @@ const SellerContainer = ({ id }) => {
   }
   return (
     <div className="button-container">
-      <NavLink to={`/edit/${id}`}>
-        <button className="button">Edit Book</button>
-      </NavLink>
+      <button className="button">
+        {" "}
+        <NavLink to={`/edit/${id}`}>Edit Book </NavLink>
+      </button>
       <button className="button" type="submit" onClick={handleDelete}>
         Delete Book
       </button>
