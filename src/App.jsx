@@ -13,6 +13,8 @@ import AboutUs from "./pages/AboutUs";
 import Login from "./pages/Login";
 import NotFoundPage from "./pages/NotFoundPage";
 import Register from "./pages/Register";
+import BookDetailPage from "./pages/BookDetailPage";
+import EditBook from "./pages/EditBook";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -24,6 +26,8 @@ const router = createBrowserRouter(
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path="*" element={<NotFoundPage />} />
+      <Route path="/books/:id" element={<BookDetailPage />} />
+      <Route path="/edit/:id" element={<EditBook />} />
     </Route>
   )
 );
