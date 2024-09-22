@@ -18,9 +18,7 @@ const Login = () => {
   if (loginSuccess && user) {
     return (
       <div>
-        <h1>Welcome! {user.username}</h1>
         <Logout />
-
       </div>
     );
   }
