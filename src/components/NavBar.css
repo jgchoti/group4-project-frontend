@@ -1,3 +1,4 @@
+/* Estilos generales de la barra de navegación */
 .navbar {
   background-color: #95bfd4;
 }
@@ -9,6 +10,7 @@
   justify-content: space-between;
 }
 
+/* Logo: el contenedor y el logo no cambiarán con el estado activo */
 .logo-container {
   display: flex;
   flex: 1;
@@ -22,6 +24,7 @@
   align-items: center;
   margin-right: 1rem;
   text-decoration: none;
+  background-color: inherit; /* Aseguramos que el fondo del logo no cambie */
 }
 
 .logo-img {
@@ -44,6 +47,7 @@
   }
 }
 
+/* Estilos de los enlaces de navegación */
 .nav-links {
   margin-left: auto;
 }
@@ -69,7 +73,8 @@
   color: #ffffff;
 }
 
-.active {
+/* Clase .active se aplica solo a los botones de navegación, no al logo */
+.nav-link.active {
   background-color: #5466dd;
   color: #f0e5e5;
 }

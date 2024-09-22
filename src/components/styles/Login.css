@@ -10,6 +10,7 @@
     margin: 0 auto;
     margin-top: 30px;
     margin-bottom: 30px;
+    position: relative; /* Añadir posición relativa para posicionar el mensaje de register */
   }
   
   /* Título del formulario centrado */
@@ -58,6 +59,32 @@
   
   .submit-btn:hover {
     background-color: #2ecc71;
+  }
+  
+  /* Estilo del mensaje de "Don’t have an account?" */
+  .register-message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: -40px; /* 30px de separación desde el borde inferior del contenedor */
+    left: 50%;
+    transform: translateX(-50%); /* Centrando horizontalmente */
+    background-color: transparent;
+    font-size: 1rem;
+    color: #333;
+    margin-top: 50px;
+  }
+  
+  /* Hacer el enlace de "Register" con estilo */
+  .register-message a {
+    color: #007bff;
+    text-decoration: none;
+    margin-left: 5px;
+  }
+  
+  .register-message a:hover {
+    text-decoration: underline;
   }
   
   /* Responsivo para pantallas pequeñas */

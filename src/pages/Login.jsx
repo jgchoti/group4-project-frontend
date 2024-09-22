@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import LoginForm from "../components/LoginForm"; // Importar componente LoginForm
 import { AuthContext } from "../context/AuthContext"; // Importar contexto de autenticación
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, NavLink } from 'react-router-dom'; // Usar NavLink para el enlace a Register
 import '../components/styles/Login.css'; // Asegurarse de cargar el CSS adecuado
 
 const Login = () => {
@@ -32,6 +32,11 @@ const Login = () => {
       {errorMessage && <p className="error">{errorMessage}</p>}
       {error && <p className="error">{error}</p>} {/* Mostrar errores del contexto */}
       <LoginForm onLogin={handleLogin} />
+      
+      {/* Mensaje con el enlace a Register */}
+      <div className="register-message">
+        <p>Don’t have an account? <NavLink to="/register">Register</NavLink></p>
+      </div>
     </div>
   );
 };

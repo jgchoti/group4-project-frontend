@@ -25,6 +25,8 @@ const router = createBrowserRouter(
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path="*" element={<NotFoundPage />} />
+      {/* Ruta para la página de detalles del libro */}
+      <Route path="/books/:id" element={<BookDetailPage />} /> {/* NUEVA RUTA PARA DETALLES DEL LIBRO */}
     </Route>
   )
 );

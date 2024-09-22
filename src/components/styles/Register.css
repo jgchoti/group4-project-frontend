@@ -4,7 +4,7 @@
     max-width: 420px;
     padding: 20px;
     border: 2px solid black;
-    border-radius: 15px; /* Bordes redondeados */
+    border-radius: 15px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     background-color: #fff;
     margin: 0 auto;
@@ -20,16 +20,88 @@
     color: #333;
   }
   
-  /* Estilos generales para las etiquetas de los campos */
-  .form-label {
+  /* Estilos generales para las etiquetas de los campos alineados a la izquierda */
+  .register-form label {
     font-size: 1.1rem;
     margin-bottom: 5px;
     display: block;
     color: #555;
+    text-align: left; /* Alinear a la izquierda */
+    margin-left: 0.5rem;
   }
   
   /* Estilos de los campos de entrada */
   .register-form input {
-    width: 90%;
-    padding:
+    width: 90%; /* Ajuste de ancho para entrada */
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px; /* Bordes redondeados */
+    font-size: 1rem;
+    outline: none;
+  }
+  
+  .register-form input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+  
+  /* Estilos del botón de envío */
+  .submit-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    border-radius: 8px; /* Bordes redondeados */
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
+  
+  .submit-btn:hover {
+    background-color: #2ecc71;
+  }
+  
+  /* Estilo para los términos y condiciones */
+.terms {
+  display: flex; /* Usar flexbox para alinear los elementos */
+  align-items: center; /* Alinear verticalmente en el centro */
+  justify-content: flex-start; /* Alinear los elementos a la izquierda */
+  margin-bottom: 15px; /* Margen inferior de 15px */
+}
+
+/* Ajustar el checkbox */
+.terms input[type="checkbox"] {
+  margin-right: 10px; /* Espacio entre la casilla y el texto */
+  width: 20px; /* Asegurar un tamaño consistente de la casilla */
+  height: 20px; /* Ajustar la altura para asegurar un tamaño uniforme */
+  box-sizing: border-box; /* Asegura que padding y border no afecten el tamaño total */
+  /* Puedes ajustar este valor si la alineación vertical aún no es precisa */
+  transform: translateY(1px); /* Ajustar la posición vertical del checkbox respecto al texto */
+}
+
+/* Ajustar el label */
+.terms label {
+  font-size: 1rem; /* Tamaño de fuente de 1 rem */
+  text-align: left; /* Alinear el texto a la izquierda */
+  margin: 0; /* Sin margen */
+  line-height: 1.2; /* Ajustar la altura de línea si es necesario */
+}
+
+  
+  /* Mensaje de error */
+  .error {
+    color: red;
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 1rem;
+  }
+  
+  /* Responsivo para pantallas pequeñas */
+  @media (max-width: 500px) {
+    .form-container {
+      width: 90%;
+      padding: 15px;
+    }
+  }
   

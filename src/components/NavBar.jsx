@@ -43,12 +43,13 @@ const NavBar = () => {
               <div className="links">
                 <NavLink to="/" style={navLinkStyle}>Home</NavLink>
                 <NavLink to="/about" style={navLinkStyle}>About Us</NavLink>
-
+                <NavLink to="/books" style={navLinkStyle}>Books</NavLink>
+               
                 {/* Mostrar solo si el usuario está autenticado */}
                 {user && (
                   <>
-                    <NavLink to="/books" style={navLinkStyle}>Search Book</NavLink>
-                    <NavLink to="/add-book" style={navLinkStyle}>Add Book</NavLink>
+                   
+                   <NavLink to="/add-book" style={navLinkStyle}>Add Book</NavLink>
                     <button onClick={logout} className="nav-link">Logout</button>
                   </>
                 )}
