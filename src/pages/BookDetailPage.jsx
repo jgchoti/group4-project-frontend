@@ -10,9 +10,15 @@ const BookDetailPage = () => {
   const [image, setImage] = useState("");
   const [user, setUser] = useState(null);
   const [isSeller, setIsSeller] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
-    setUser(JSON.parse(localStorage.getItem("user")));
+    const token = localStorage.getItem("token");
+    if (token) {
+      setUser(JSON.parse(localStorage.getItem("user")));
+      setIsLoggedIn(true);
+    }
+
     Api(`books/${id}`)
       .then((data) => {
         setBook(data[0]);
@@ -33,7 +39,7 @@ const BookDetailPage = () => {
   if (!book) {
     return (
       <div>
-        <p>This book is sold or unavailable.</p>
+        <p>This book is unavailable.</p>
         <NavLink to="/books">Check other available books</NavLink>
       </div>
     );
@@ -41,7 +47,7 @@ const BookDetailPage = () => {
 
   return (
     <div className="book-detail-wrapper">
-      <BookDetail book={book} image={image} />
+      <BookDetail book={book} image={image} isLoggedIn={isLoggedIn} />
       {isSeller && <SellerContainer id={id} book={book} />}
     </div>
   );
