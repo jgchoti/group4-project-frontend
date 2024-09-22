@@ -1,4 +1,3 @@
-import React from "react";
 import HomePage from "./pages/HomePage";
 import {
   Route,
@@ -13,6 +12,7 @@ import AboutUs from "./pages/AboutUs";
 import Login from "./pages/Login";
 import NotFoundPage from "./pages/NotFoundPage";
 import Register from "./pages/Register";
+import Logout from "./pages/Logout";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -22,6 +22,7 @@ const router = createBrowserRouter(
       <Route path="/add-book" element={<AddBook />} />
       <Route path="/about" element={<AboutUs />} />
       <Route path="/login" element={<Login />} />
+      <Route path="/Logout" element={<Logout />} />
       <Route path="/register" element={<Register />} />
       <Route path="*" element={<NotFoundPage />} />
     </Route>

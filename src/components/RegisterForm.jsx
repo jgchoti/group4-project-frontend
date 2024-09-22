@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import InputField from "./InputField";
 import Api from "../Api";
-import "./LoginForm.css";
+import "./RegisterForm.css";
 
 const LoginForm = () => {
   const [formData, setFormData] = useState({
@@ -53,7 +53,7 @@ const LoginForm = () => {
 
   return (
     <div className="login-form-container">
-      <div className="label">Login</div>
+      <div className="label">Sign UP</div>
       <form onSubmit={handleSubmit} className="login-form">
         {error && <p className="error">{error}</p>}
         <InputField
@@ -75,11 +75,11 @@ const LoginForm = () => {
           required={true}
         />
         <div className="center">
-        <button type="submit">Login</button>
+        <button type="submit">Register</button>
         </div>
       </form>
       <p>
-        Do not have an account? <NavLink to="/register">Register</NavLink>
+        Already Have Account? <NavLink to="/Login">Login</NavLink>
       </p>
     </div>
   );

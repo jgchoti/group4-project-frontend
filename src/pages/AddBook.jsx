@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink,Route,Router, Routes} from "react-router-dom";
 import AddBookForm from "../components/AddBookForm";
+import { Forward } from "react-bootstrap-icons";
+import Login from "./Login";
 
 const AddBook = () => {
   const [token, setToken] = useState(null);
@@ -13,15 +15,16 @@ const AddBook = () => {
   if (!token) {
     return (
       <div>
-        <p>Please log in to add a book</p>
-        <NavLink to="/login">Login</NavLink>
-      </div>
+        <h1>To add Books you have to Login First</h1>
+        <Routes>
+          <Route exact path="/" element={<Login />} />
+        </Routes>
+    </div>
     );
   }
 
   return (
     <div>
-      <h1>Add a Book</h1>
       <AddBookForm token={token} />
     </div>
   );
