@@ -36,7 +36,6 @@ const NavBar = () => {
           <div className="logo-container">
             <NavLink className="logo-link" to="/index">
               <img className="logo-img" src={booklogo} alt="BookMate" />
-              <span className="logo-text">BookMate</span>
             </NavLink>
             <SearchBar />
             <div className="nav-links">
