@@ -1,4 +1,3 @@
-import React from "react";
 import HomePage from "./pages/HomePage";
 import {
   Route,
@@ -16,6 +15,7 @@ import Register from "./pages/Register";
 import BookDetailPage from "./pages/BookDetailPage";
 import EditBook from "./pages/EditBook";
 import SearchResultPage from "./pages/SearchResultPage";
+import Logout from "./pages/Logout";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -25,6 +25,7 @@ const router = createBrowserRouter(
       <Route path="/add-book" element={<AddBook />} />
       <Route path="/about" element={<AboutUs />} />
       <Route path="/login" element={<Login />} />
+      <Route path="/Logout" element={<Logout />} />
       <Route path="/register" element={<Register />} />
       <Route path="*" element={<NotFoundPage />} />
       <Route path="/books/:id" element={<BookDetailPage />} />

@@ -2,6 +2,7 @@ import React from "react";
 import "./NavBar.css"; // Ensure this file is loaded correctly
 import booklogo from "../assets/booklogo.png";
 import { NavLink } from "react-router-dom";
+import Logout from "../pages/Logout";
 import SearchBar from "./SearchBar";
 
 const NavBar = () => {
@@ -33,7 +34,7 @@ const NavBar = () => {
       <div className="container">
         <div className="nav-content">
           <div className="logo-container">
-            <NavLink className="logo-link" to="/">
+            <NavLink className="logo-link" to="/index">
               <img className="logo-img" src={booklogo} alt="BookMate" />
               <span className="logo-text">BookMate</span>
             </NavLink>
