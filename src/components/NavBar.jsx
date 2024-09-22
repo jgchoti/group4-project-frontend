@@ -2,6 +2,7 @@ import React from 'react';
 import './NavBar.css'; // Ensure this file is loaded correctly
 import booklogo from '../assets/booklogo.png';
 import { NavLink } from 'react-router-dom';
+import Logout from "../pages/Logout";
 
 const NavBar = () => {
   // Base style for navigation buttons
@@ -32,13 +33,12 @@ const NavBar = () => {
       <div className="container">
         <div className="nav-content">
           <div className="logo-container">
-            <NavLink className="logo-link" to="/index">
+            <NavLink className="logo-link" to="/">
               <img
                 className="logo-img"
                 src={booklogo}
                 alt="BookMate"
               />
-              <span className="logo-text">BookMate</span>
             </NavLink>
             <div className="nav-links">
               <div className="links">
@@ -47,6 +47,8 @@ const NavBar = () => {
                 <NavLink to="/add-book" style={navLinkStyle}>Add Book</NavLink>
                 <NavLink to="/about" style={navLinkStyle}>About us</NavLink>
                 <NavLink to="/login" style={navLinkStyle}>Login</NavLink>
+                <NavLink to="/Logout" style={navLinkStyle}>Logout</NavLink>
+
               </div>
             </div>
           </div>

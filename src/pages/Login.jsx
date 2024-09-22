@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import LoginForm from "../components/LoginForm";
+import Logout from "../pages/Logout";
 
 const Login = () => {
   const [loginSuccess, setLoginSuccess] = useState(false);
@@ -18,13 +19,14 @@ const Login = () => {
     return (
       <div>
         <h1>Welcome! {user.username}</h1>
+        <Logout />
+
       </div>
     );
   }
 
   return (
     <div>
-      <h1>Login</h1>
       <LoginForm />
     </div>
   );

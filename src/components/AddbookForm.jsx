@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import Api from "../Api";
 import UploadImage from "./UploadImage";
 import InputField from "./InputField";
+import "./AddbookForm.css";
 
 const DEFAULT_IMAGE_URL =
   "http://cdn.bakerpublishinggroup.com/covers/listing/missing.png";
@@ -50,7 +51,8 @@ const AddBookForm = ({ token }) => {
 
   return (
     <div className="add-book-form">
-      <h2>Add a Book</h2>
+               <div className="label">
+               Add a Book </div>
       {message && <p>{message}</p>}
       {!bookAdded ? (
         <form onSubmit={handleSubmit}>
@@ -91,7 +93,7 @@ const AddBookForm = ({ token }) => {
           />
 
           <InputField
-            type="number"
+            type="text"
             name="price"
             value={formData.price}
             onChange={handleInputChange}
@@ -118,20 +120,20 @@ const AddBookForm = ({ token }) => {
             label="Delivery Info:"
             required={true}
           />
+          
+          <InputField
+            type="text"
+            name="information"
+            value={formData.information}
+            onChange={handleInputChange}
+            label=" Information:"
+          />
 
-          <div className="input-field">
-            <label htmlFor="information">Additional Information:</label>
-            <textarea
-              id="information"
-              name="information"
-              value={formData.information}
-              onChange={handleInputChange}
-            />
-          </div>
+          
 
           <UploadImage token={token} handleImageUpload={handleImageUpload} />
-
-          <button type="submit">Add Book</button>
+          <div className="center">
+          <button type="submit">Add Book</button></div>
         </form>
       ) : (
         <NavLink to="/">Return to Home</NavLink>
