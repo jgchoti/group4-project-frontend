@@ -1,25 +1,26 @@
 .button-container {
   display: flex;
-  margin: 0 auto;
-  width: 50%;
-}
-
-.button-container a {
-  text-decoration: none;
-  color: #0c0c0c;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto;
+  gap: 20px;
+  background-color: gainsboro;
+  width: 60%;
+  padding: 10px;
+  border-radius: 5px;
 }
 
 .button {
-  flex: 1;
-  margin: 40px 80px;
-  text-align: center;
-  background-color: #a2cde3;
-  color: #0c0c0c;
+  padding: 10px 20px !important;
+  font-size: 16px;
+  color: white;
+  background-color: #007bff;
   border: none;
-  padding: 10px 20px;
+  border-radius: 5px;
   cursor: pointer;
+  transition: background-color 0.3s;
 }
 
 .button:hover {
-  background-color: #005f73;
+  background-color: #0056b3;
 }
