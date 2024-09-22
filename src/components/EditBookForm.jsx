@@ -14,6 +14,7 @@ const EditBookForm = ({ id, token }) => {
     city: "",
     delivery: "",
     information: "",
+    status: true,
   });
   const [message, setMessage] = useState("");
   const [bookEdited, setBookEdited] = useState(false);
@@ -31,11 +32,18 @@ const EditBookForm = ({ id, token }) => {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setFormData((prevData) => ({ ...prevData, [name]: value }));
+    let fieldValue = value;
+    if (name === "status") {
+      fieldValue = value === "true";
+    }
+
+    setFormData((prevData) => ({ ...prevData, [name]: fieldValue }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const statusValue = formData.status ? 1 : 0;
+
     const data = {
       image: book.image,
       title: book.title,
@@ -46,14 +54,17 @@ const EditBookForm = ({ id, token }) => {
       city: formData.city || book.city,
       delivery: formData.delivery || book.delivery,
       information: formData.information || book.information,
+      status: statusValue,
     };
+
     try {
+      console.log(data);
       const response = await Api(`books/${id}`, "PUT", data, token);
       console.log("Book edited successfully:", response);
       setMessage("Book Edited successfully!");
       setBookEdited(true);
     } catch (error) {
-      setMessage("Failed to edit book, please try again.");
+      setMessage(`Failed to edit book, please try again. ${error}`);
       console.error("Error edit book:", error);
     }
   };
@@ -65,9 +76,18 @@ const EditBookForm = ({ id, token }) => {
           <img src={book.image} alt="Book Cover" />
         </div>
         <h3>{book.title}</h3>
-        {message && <p>{message}</p>}
         {!bookEdited ? (
           <form onSubmit={handleSubmit}>
+            <label>Mark this book as</label>
+            <select
+              name="status"
+              id="status"
+              value={formData.status}
+              onChange={handleInputChange}
+            >
+              <option value={true}>Available</option>
+              <option value={false}>Sold</option>
+            </select>
             <InputField
               type="text"
               name="author"
@@ -76,7 +96,6 @@ const EditBookForm = ({ id, token }) => {
               label="Author:"
               placeholder={book.author}
             />
-
             <InputField
               type="text"
               name="genre"
@@ -85,7 +104,6 @@ const EditBookForm = ({ id, token }) => {
               label="Genre:"
               placeholder={book.genre}
             />
-
             <InputField
               type="text"
               name="book_condition"
@@ -94,7 +112,6 @@ const EditBookForm = ({ id, token }) => {
               label="Condition:"
               placeholder={book.book_condition}
             />
-
             <InputField
               type="number"
               name="price"
@@ -105,7 +122,6 @@ const EditBookForm = ({ id, token }) => {
               step="0.01"
               placeholder={book.price}
             />
-
             <InputField
               type="text"
               name="city"
@@ -114,7 +130,6 @@ const EditBookForm = ({ id, token }) => {
               label="City:"
               placeholder={book.city}
             />
-
             <InputField
               type="text"
               name="delivery"
@@ -123,7 +138,6 @@ const EditBookForm = ({ id, token }) => {
               label="Delivery Info:"
               placeholder={book.delivery}
             />
-
             <div className="input-field">
               <label htmlFor="information">Additional Information:</label>
               <textarea
@@ -137,7 +151,12 @@ const EditBookForm = ({ id, token }) => {
             <button type="submit">Edit Book</button>
           </form>
         ) : (
-          <NavLink to="/">Return to Home</NavLink>
+          <div>
+            <p>{message}</p>
+            <NavLink to={`/books/${id}`}>View Book Details</NavLink>
+            <br />
+            <NavLink to="/">Return to Home</NavLink>
+          </div>
         )}
       </div>
     </div>
