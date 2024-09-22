@@ -4,23 +4,18 @@ import InputField from "./InputField";
 import Api from "../Api";
 import "./RegisterForm.css";
 
-const LoginForm = () => {
+const RegisterForm = () => {
   const [formData, setFormData] = useState({
+    username: "",
     email: "",
     password: "",
+    phonenumber: "",
   });
 
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
-  const [loginSuccess, setLoginSuccess] = useState(false);
+  const [registerSuccess, setRegisterSuccess] = useState(false);
   const navigate = useNavigate();
-
-  useEffect(() => {
-    const token = localStorage.getItem("token");
-    if (token) {
-      setLoginSuccess(true);
-    }
-  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -32,30 +27,41 @@ const LoginForm = () => {
     console.log("Form submitted:", formData);
     setLoading(true);
     setError("");
+
     try {
-      const data = await Api("users/login", "POST", formData);
-      localStorage.setItem("token", data.token); // Save token in local storage
-      localStorage.setItem("user", JSON.stringify(data.user)); // Save user data in local storage
-      console.log("Login successful:", data);
-      setLoginSuccess(true);
+      const data = await Api("users/register", "POST", formData);
+      console.log("Registration successful:", data);
+      setRegisterSuccess(true);
     } catch (error) {
-      setError("Login failed. Please try again.");
+      console.log(error);
+      setError(
+        error.message || "An unexpected error occurred. Please try again."
+      );
     } finally {
       setLoading(false);
     }
   };
 
   useEffect(() => {
-    if (loginSuccess) {
-      navigate("/");
+    if (registerSuccess) {
+      navigate("/login");
     }
-  }, [loginSuccess, navigate]);
+  }, [registerSuccess, navigate]);
 
   return (
     <div className="login-form-container">
-      <div className="label">Sign UP</div>
+      <div className="label">Sign Up</div>
       <form onSubmit={handleSubmit} className="login-form">
         {error && <p className="error">{error}</p>}
+        <InputField
+          type="text"
+          name="username"
+          value={formData.username}
+          onChange={handleChange}
+          placeholder="Username"
+          label="Username:"
+          required={true}
+        />
         <InputField
           type="email"
           name="email"
@@ -74,15 +80,26 @@ const LoginForm = () => {
           label="Password:"
           required={true}
         />
+        <InputField
+          type="tel"
+          name="phonenumber"
+          value={formData.phonenumber}
+          onChange={handleChange}
+          placeholder="Phone Number"
+          label="Phone Number:"
+          required={true}
+        />
         <div className="center">
-        <button type="submit">Register</button>
+          <button type="submit" disabled={loading}>
+            {loading ? "Registering..." : "Register"}
+          </button>
         </div>
       </form>
       <p>
-        Already Have Account? <NavLink to="/Login">Login</NavLink>
+        Already have an account? <NavLink to="/login">Login</NavLink>
       </p>
     </div>
   );
 };
 
-export default LoginForm;
+export default RegisterForm;
