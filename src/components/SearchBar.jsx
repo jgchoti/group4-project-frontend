@@ -1,7 +1,7 @@
-// src/components/SearchBar.js
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
 import Api from "../Api";
+import "./SearchBar.css";
 
 const SearchBar = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -29,15 +29,15 @@ const SearchBar = () => {
   };
 
   return (
-    <form className="search-bar" onSubmit={handleSubmit}>
+    <form className="search-form" onSubmit={handleSubmit}>
       <input
         type="text"
         placeholder="Search books..."
         value={searchTerm}
         onChange={handleInputChange}
-        className="search-input"
+        className="search-bar"
       />
-      <button type="submit" className="search-button">
+      <button type="submit" className="btn-search">
         Search
       </button>
     </form>
