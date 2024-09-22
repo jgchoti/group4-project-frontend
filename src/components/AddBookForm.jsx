@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import Api from "../Api";
 import UploadImage from "./UploadImage";
 import InputField from "./InputField";
+import "./AddbookForm.css";
 
 const DEFAULT_IMAGE_URL =
   "http://cdn.bakerpublishinggroup.com/covers/listing/missing.png";
@@ -43,14 +44,16 @@ const AddBookForm = ({ token }) => {
       setMessage("Book added successfully!");
       setBookAdded(true);
     } catch (error) {
-      setMessage("Failed to add book, please try again.");
+      setMessage(
+        error.message || "An unexpected error occurred. Please try again."
+      );
       console.error("Error adding book:", error);
     }
   };
 
   return (
     <div className="add-book-form">
-      <h2>Add a Book</h2>
+      <div className="label">Add a Book </div>
       {message && <p>{message}</p>}
       {!bookAdded ? (
         <form onSubmit={handleSubmit}>
@@ -119,19 +122,18 @@ const AddBookForm = ({ token }) => {
             required={true}
           />
 
-          <div className="input-field">
-            <label htmlFor="information">Additional Information:</label>
-            <textarea
-              id="information"
-              name="information"
-              value={formData.information}
-              onChange={handleInputChange}
-            />
-          </div>
+          <InputField
+            type="text"
+            name="information"
+            value={formData.information}
+            onChange={handleInputChange}
+            label=" Information:"
+          />
 
           <UploadImage token={token} handleImageUpload={handleImageUpload} />
-
-          <button type="submit">Add Book</button>
+          <div className="center">
+            <button type="submit">Add Book</button>
+          </div>
         </form>
       ) : (
         <NavLink to="/">Return to Home</NavLink>
