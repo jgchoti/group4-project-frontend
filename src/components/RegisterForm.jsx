@@ -11,7 +11,7 @@ const RegisterForm = () => {
     password: "",
     phonenumber: "",
   });
-
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const [registerSuccess, setRegisterSuccess] = useState(false);
@@ -22,11 +22,19 @@ const RegisterForm = () => {
     setFormData({ ...formData, [name]: value });
   };
 
+  const handleConfirmPasswordChange = (e) => {
+    setConfirmPassword(e.target.value);
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log("Form submitted:", formData);
     setLoading(true);
     setError("");
+    if (formData.password !== confirmPassword) {
+      setError("Passwords do not match.");
+      return;
+    }
 
     try {
       const data = await Api("users/register", "POST", formData);
@@ -50,7 +58,7 @@ const RegisterForm = () => {
 
   return (
     <div className="login-form-container">
-      <div className="label">Sign Up</div>
+      <div className="label">New User Register</div>
       <form onSubmit={handleSubmit} className="login-form">
         {error && <p className="error">{error}</p>}
         <InputField
@@ -72,6 +80,15 @@ const RegisterForm = () => {
           required={true}
         />
         <InputField
+          type="tel"
+          name="phonenumber"
+          value={formData.phonenumber}
+          onChange={handleChange}
+          placeholder="Phone Number"
+          label="Phone Number:"
+          required={true}
+        />
+        <InputField
           type="password"
           name="password"
           value={formData.password}
@@ -80,13 +97,17 @@ const RegisterForm = () => {
           label="Password:"
           required={true}
         />
+        <p className="password-text">
+          Password must be at least 6 characters long, must contain letters in
+          mixed case and must contain numbers.
+        </p>
         <InputField
-          type="tel"
-          name="phonenumber"
-          value={formData.phonenumber}
-          onChange={handleChange}
-          placeholder="Phone Number"
-          label="Phone Number:"
+          type="password"
+          name="confirmPassword"
+          value={confirmPassword}
+          onChange={handleConfirmPasswordChange}
+          placeholder="Confirm Password"
+          label="Confirm Password:"
           required={true}
         />
         <div className="center">
