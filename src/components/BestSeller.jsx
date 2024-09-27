@@ -1,13 +1,8 @@
 import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
 import "./BestSeller.css";
 
 const BestSeller = ({ book, image }) => {
-  const [showMore, setShowMore] = useState(false);
-
-  const toggleShowMore = () => {
-    setShowMore(!showMore);
-  };
-
   return (
     <article className="book-item">
       <div className="image-wrapper">
@@ -18,17 +13,9 @@ const BestSeller = ({ book, image }) => {
         <p>{book.title}</p>
         <h3>Author:</h3>
         <p>{book.author}</p>
-        {showMore && (
-          <>
-            <h3>Genre:</h3>
-            <p>{book.genre}</p>
-            <h3>Price:</h3>
-            <p>€{book.price}</p>
-          </>
-        )}
-        <button onClick={toggleShowMore} className="toggle-button">
-          {showMore ? "Show Less" : "Show More"}
-        </button>
+        <NavLink to={`/books/${book.id}`}>
+          <button className="toggle-button">Show Detail</button>
+        </NavLink>
       </div>
     </article>
   );
