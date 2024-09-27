@@ -1,98 +1,124 @@
-
-input[type=text], select {
-    display: flex;
-    padding: 9px 25px;
-    flex-direction: column;
-    margin: 3px 0;
-    width: 600px;
-    display: inline-block;
-    border: 2px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;     
-  }
-  
-  label {
-    font-size: 18px;
-    display: block;
-    width: 100%;
-    margin-top: 3px;
-    margin-bottom: 3px;
-    text-align: left;
-    color: #0a0909;
-    font-weight: bold;
+input[type="text"],
+select {
+  display: flex;
+  padding: 9px 25px;
+  flex-direction: column;
+  margin: 3px 0;
+  width: 600px;
+  display: inline-block;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
 }
 
+label {
+  font-size: 18px;
+  display: block;
+  width: 100%;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  text-align: left;
+  color: #0a0909;
+  font-weight: bold;
+}
 
 input[type="file"] {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: 600px;
+  padding-bottom: 35px;
+}
 
-    display: flex;
-    flex-direction: column;
-    margin: auto;
-    width: 600px;
-    padding-bottom: 35px;
-  }
+.input-field {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: 600px;
+  padding-bottom: 30px;
+  align-items: center;
+}
 
-  .input-field{
-    display: flex;
-    flex-direction: column;
-    margin: auto;
-    width: 600px;
-    padding-bottom: 30px;
-    align-items: center;
+.add-book-form {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  margin-top: 50px;
+  width: 800px;
+  padding-top: 80px;
+  padding-bottom: 120px;
+  margin-bottom: 80px;
+}
 
-  }
+.center {
+  position: absolute;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  padding-bottom: 50px;
+  padding-top: 180px;
+}
+.upload {
+  position: absolute;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  padding-bottom: 85px;
+}
+button[type="submit"] {
+  background-color: #4caf50;
+  color: white;
+  padding: 14px 65px;
+  margin: 20px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
 
-.add-book-form{
-    border-radius: 5px;
-    background-color: #f2f2f2;
-    display: flex;
-    flex-direction: column;
-    margin: auto;
-    margin-top: 50px;
-    width: 800px;
-    padding-Top: 80px;
-    padding-bottom: 120px;
-    margin-bottom: 80px;
+.label {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 10px;
+  align-items: center;
+  margin-top: 1px;
+  font-size: xx-large;
+  font-weight: bold;
+}
 
-      }
+textarea {
+  width: 100%;
+}
 
-      
-     .center {
-        position: absolute;
-        left: 50%;
-        -ms-transform: translate(-50%, -50%);
-        transform: translate(-50%, -50%);
-        padding-bottom: 50px; 
-        padding-top: 180px; 
-        
-                   
-      }
-      .upload {
-        position: absolute;
-        left: 50%;
-        -ms-transform: translate(-50%, -50%);
-        transform: translate(-50%, -50%);
-        padding-bottom: 85px; 
+select {
+  margin-bottom: 30px;
+}
 
+h1,
+h2 {
+  margin-top: 80px;
+  text-align: center;
+}
 
-      }
-      button[type="submit"] {
-        background-color: #4CAF50;
-        color: white;
-        padding: 14px 65px;
-        margin: 20px 0;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer; 
-        
-      }
+.info-message {
+  background-color: #ccc;
+  margin: 30px;
+  border-radius: 5px;
+  padding: 20px 40px;
+  line-height: 1.5;
+}
 
-      .label {
-        display: flex;
-        flex-direction: column;
-        padding-bottom: 10px; 
-        align-items: center;
-        margin-top: 1px;
-        font-size:xx-large;
-        font-weight: bold;
-     }
+.info-message p {
+  font-size: 24px;
+  text-align: left;
+}
+
+.input-field .button {
+  margin-top: 10px;
+}
+
+.link-to-home {
+  text-align: center;
+  font-size: 18px;
+}

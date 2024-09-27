@@ -17,7 +17,7 @@ const WelcomeMessage = () => {
     <>
       {isLoggedIn && (
         <div className="welcome-message">
-          <h2>Welcome {username}</h2>
+          <h2>Welcome! {username}</h2>
         </div>
       )}
     </>

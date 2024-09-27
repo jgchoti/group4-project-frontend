@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Api from "../Api";
+import "./UploadImage.jsx";
 
 const UploadImage = ({ token, handleImageUpload }) => {
   const [image, setImage] = useState(null);
@@ -38,7 +39,7 @@ const UploadImage = ({ token, handleImageUpload }) => {
   };
 
   return (
-    <div>
+    <div className="input-field">
       <h3>Upload Book Image</h3>
       <input type="file" onChange={handleFileChange} />
       {previewUrl && (
@@ -48,6 +49,7 @@ const UploadImage = ({ token, handleImageUpload }) => {
         type="button"
         onClick={handleUpload}
         disabled={!image || uploading}
+        className="button"
       >
         {uploading ? "Uploading..." : "Upload Image"}
       </button>

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import Api from "../Api";
 import UploadImage from "./UploadImage";
 import InputField from "./InputField";
@@ -22,6 +22,11 @@ const AddBookForm = ({ token }) => {
   });
   const [message, setMessage] = useState("");
   const [bookAdded, setBookAdded] = useState(false);
+  const navigate = useNavigate();
+
+  const handleCancel = () => {
+    navigate(`/`);
+  };
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -51,8 +56,11 @@ const AddBookForm = ({ token }) => {
 
   return (
     <div className="add-book-form">
-      <div className="label">Add a Book </div>
+      <div className="label">
+        <h2>Add a Book </h2>
+      </div>
       {message && <p>{message}</p>}
+
       {!bookAdded ? (
         <form onSubmit={handleSubmit}>
           <InputField
@@ -129,12 +137,36 @@ const AddBookForm = ({ token }) => {
           />
 
           <UploadImage token={token} handleImageUpload={handleImageUpload} />
+          <div className="info-message">
+            <p>Note:</p>
+            <ul>
+              <li>You can update the book's status once it's published.</li>
+              <li>Remember to mark it as sold when applicable.</li>
+              <li>
+                After publication, you can edit most details, but the title and
+                image cannot be changed.
+              </li>
+              <li>
+                Your email and phone number from your account will be shared
+                with potential buyers for contact purposes.
+              </li>
+            </ul>
+          </div>
           <div className="center">
             <button type="submit">Add Book</button>
+            <button
+              type="button"
+              onClick={handleCancel}
+              className="cancel-button"
+            >
+              Cancel
+            </button>
           </div>
         </form>
       ) : (
-        <NavLink to="/">Return to Home</NavLink>
+        <div className="link-to-home">
+          <NavLink to="/">Return to Home</NavLink>
+        </div>
       )}
     </div>
   );
