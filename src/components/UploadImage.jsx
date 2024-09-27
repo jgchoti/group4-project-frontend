@@ -29,7 +29,7 @@ const UploadImage = ({ token, handleImageUpload }) => {
       const result = await Api("upload/image", "POST", formData, token);
       setUploading(false);
       setUploadMessage("Upload successful!");
-      console.log("Uploaded Image URL:", result.imageUrl);
+
       handleImageUpload(result.imageUrl);
     } catch (error) {
       setUploading(false);
