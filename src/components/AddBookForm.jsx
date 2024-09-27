@@ -6,7 +6,7 @@ import InputField from "./InputField";
 import "./AddBookForm.css";
 
 const DEFAULT_IMAGE_URL =
-  "http://cdn.bakerpublishinggroup.com/covers/listing/missing.png";
+  "https://res.cloudinary.com/dpe8wsyk8/image/upload/v1727444224/missing_ursxfq.png";
 
 const AddBookForm = ({ token }) => {
   const [formData, setFormData] = useState({
