@@ -57,7 +57,7 @@ const AddBookForm = ({ token }) => {
   return (
     <div className="add-book-form">
       <div className="label">
-        <h2>Add a Book </h2>
+        <h1>Add a Book </h1>
       </div>
       {message && <p>{message}</p>}
 
