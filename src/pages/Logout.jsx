@@ -28,6 +28,9 @@ const Logout = ({ token }) => {
       console.error("Error logging out:", error);
     }
   };
+  const handleCancel = () => {
+    navigate("/");
+  };
 
   return (
     <div>
@@ -40,10 +43,12 @@ const Logout = ({ token }) => {
       ) : (
         <div className="btn1">
           <p className="p1">Are you sure your want to logout ?</p>
-
           <div className="btn">
             <button className="button" onClick={handleLogout}>
               Logout
+            </button>
+            <button className="button cancel-btn" onClick={handleCancel}>
+              Cancel
             </button>
           </div>
         </div>
