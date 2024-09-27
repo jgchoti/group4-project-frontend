@@ -12,6 +12,9 @@ import AboutUs from "./pages/AboutUs";
 import Login from "./pages/Login";
 import NotFoundPage from "./pages/NotFoundPage";
 import Register from "./pages/Register";
+import BookViewDetailPage from "./pages/BookViewDetailPage";
+import EditBookPage from "./pages/EditBookPage";
+import SearchResultPage from "./pages/SearchResultPage";
 import Logout from "./pages/Logout";
 
 const router = createBrowserRouter(
@@ -25,6 +28,9 @@ const router = createBrowserRouter(
       <Route path="/Logout" element={<Logout />} />
       <Route path="/register" element={<Register />} />
       <Route path="*" element={<NotFoundPage />} />
+      <Route path="/books/:id" element={<BookViewDetailPage />} />
+      <Route path="/edit/:id" element={<EditBookPage />} />
+      <Route path="/search-result" element={<SearchResultPage />} />
     </Route>
   )
 );
