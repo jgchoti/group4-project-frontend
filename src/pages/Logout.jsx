@@ -19,7 +19,6 @@ const Logout = ({ token }) => {
   const handleLogout = async () => {
     try {
       const response = await Api("users/logout", "POST", null, token);
-
       localStorage.removeItem("token");
       localStorage.removeItem("user");
       window.dispatchEvent(new Event("storage"));
@@ -43,7 +42,7 @@ const Logout = ({ token }) => {
           <p className="p1">Are you sure your want to logout ?</p>
 
           <div className="btn">
-            <button className="button1" onClick={handleLogout}>
+            <button className="button" onClick={handleLogout}>
               Logout
             </button>
           </div>
