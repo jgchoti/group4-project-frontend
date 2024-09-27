@@ -31,7 +31,8 @@ const Api = async (endpoint, method = "GET", body = null, token = null) => {
     try {
         const response = await fetch(`${apiUrl}/${endpoint}`, options);
         if (!response.ok) {
-            throw new Error('Network response was not ok');
+            const errorData = await response.json();
+            throw new Error(errorData.error || errorData.message || 'Network response was not ok');
         }
         const data = await response.json();
         return data;
