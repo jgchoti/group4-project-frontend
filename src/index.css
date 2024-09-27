@@ -1,12 +1,21 @@
 /* General Container Styles */
+body {
+  font-family: Helvetica;
+}
+
 .container {
-    max-width: 112rem;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-  
-  .container-xl {
-    max-width: 128rem;
-  }
+  max-width: 112rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.container-xl {
+  max-width: 128rem;
+}
+
+h1,
+h2 {
+  text-align: center;
+}
