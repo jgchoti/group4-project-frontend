@@ -51,8 +51,7 @@ const AddBookForm = ({ token }) => {
 
   return (
     <div className="add-book-form">
-               <div className="label">
-               Add a Book </div>
+      <div className="label">Add a Book </div>
       {message && <p>{message}</p>}
       {!bookAdded ? (
         <form onSubmit={handleSubmit}>
@@ -93,7 +92,7 @@ const AddBookForm = ({ token }) => {
           />
 
           <InputField
-            type="text"
+            type="number"
             name="price"
             value={formData.price}
             onChange={handleInputChange}
@@ -120,7 +119,7 @@ const AddBookForm = ({ token }) => {
             label="Delivery Info:"
             required={true}
           />
-          
+
           <InputField
             type="text"
             name="information"
@@ -129,11 +128,10 @@ const AddBookForm = ({ token }) => {
             label=" Information:"
           />
 
-          
-
           <UploadImage token={token} handleImageUpload={handleImageUpload} />
           <div className="center">
-          <button type="submit">Add Book</button></div>
+            <button type="submit">Add Book</button>
+          </div>
         </form>
       ) : (
         <NavLink to="/">Return to Home</NavLink>
