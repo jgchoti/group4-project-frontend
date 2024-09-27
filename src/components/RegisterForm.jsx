@@ -28,7 +28,7 @@ const RegisterForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
+
     setLoading(true);
     setError("");
     if (formData.password !== confirmPassword) {
@@ -39,10 +39,9 @@ const RegisterForm = () => {
 
     try {
       const data = await Api("users/register", "POST", formData);
-      console.log("Registration successful:", data);
+
       setRegisterSuccess(true);
     } catch (error) {
-      console.log(error);
       setError(
         error.message || "An unexpected error occurred. Please try again."
       );
