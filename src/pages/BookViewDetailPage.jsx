@@ -23,7 +23,6 @@ const BookViewDetailPage = () => {
       .then((data) => {
         setBook(data[0]);
         setImage(data[0].image);
-        console.log(data);
       })
       .catch((error) => {
         console.log(`can't get data of book id ${id}`, error);
