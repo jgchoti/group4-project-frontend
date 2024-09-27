@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./NavBar.css";
 import booklogo from "../assets/booklogo.png";
 import { NavLink } from "react-router-dom";
+import SearchBar from "./SearchBar";
 
 const baseStyle = {
   color: "#FFFCFC",
@@ -45,6 +46,7 @@ const NavBar = () => {
             <NavLink className="logo-link" to="/">
               <img className="logo-img" src={booklogo} alt="BookMate" />
             </NavLink>
+            <SearchBar />
             <div className="nav-links">
               <div className="links">
                 <NavLink to="/" style={navLinkStyle}>
