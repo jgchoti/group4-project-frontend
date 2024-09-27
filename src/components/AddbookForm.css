@@ -117,3 +117,8 @@ h2 {
 .input-field .button {
   margin-top: 10px;
 }
+
+.link-to-home {
+  text-align: center;
+  font-size: 18px;
+}
