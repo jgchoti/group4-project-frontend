@@ -164,7 +164,9 @@ const AddBookForm = ({ token }) => {
           </div>
         </form>
       ) : (
-        <NavLink to="/">Return to Home</NavLink>
+        <div className="link-to-home">
+          <NavLink to="/">Return to Home</NavLink>
+        </div>
       )}
     </div>
   );
