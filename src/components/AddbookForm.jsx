@@ -3,7 +3,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import Api from "../Api";
 import UploadImage from "./UploadImage";
 import InputField from "./InputField";
-import "./AddbookForm.css";
+import "./AddBookForm.css";
 
 const DEFAULT_IMAGE_URL =
   "http://cdn.bakerpublishinggroup.com/covers/listing/missing.png";
