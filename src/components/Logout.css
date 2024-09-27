@@ -14,7 +14,7 @@
 
 .btn {
   text-align: center;
-  padding-top: 100px;
+  padding-top: 60px;
   margin-top: 1px;
   padding-bottom: 1px;
   margin-bottom: 180px;
@@ -28,4 +28,9 @@
   text-align: center;
   color: #0a0909;
   font-weight: bold;
+}
+
+.cancel-btn {
+  background-color: crimson !important;
+  margin-left: 20px;
 }
