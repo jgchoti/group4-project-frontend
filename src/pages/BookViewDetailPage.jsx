@@ -38,9 +38,11 @@ const BookViewDetailPage = () => {
 
   if (!book) {
     return (
-      <div>
+      <div className="book-item">
         <p>This book is unavailable.</p>
-        <NavLink to="/books">Check other available books</NavLink>
+        <div className="link-to-home">
+          <NavLink to="/books">Check other available books</NavLink>
+        </div>
       </div>
     );
   }
