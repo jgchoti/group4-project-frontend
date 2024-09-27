@@ -5,14 +5,23 @@ import "../components/BookListings.css";
 
 const SearchResultPage = () => {
   const location = useLocation();
-  const searchTerm = location.state.searchTerm;
+  const searchTerm = location.state?.searchTerm || "";
   const searchResults = location.state?.searchResults || [];
 
   return (
     <div>
-      <h1>Search Results For "{searchTerm}"</h1>
+      <h1>{`Search Results For "${searchTerm}"`}</h1>
+
       {typeof searchResults === "string" ? (
-        <p>{searchResults}</p>
+        <div className="no-results">
+          <p>{searchResults}</p>
+          <iframe
+            src="https://giphy.com/embed/6uGhT1O4sxpi8"
+            width="480"
+            height="240"
+            style={{ margin: "36px auto", display: "block" }}
+          ></iframe>
+        </div>
       ) : (
         <div className="book-listings-container">
           {searchResults.map((book) => (
