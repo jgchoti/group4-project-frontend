@@ -1,9 +1,13 @@
-import React from 'react'
+import React from "react";
+import AboutUsText from "../components/AboutUsText";
 
 const AboutUs = () => {
   return (
-    <div>AboutUs</div>
-  )
-}
+    <div>
+      <h1 className="about-us-heading">About Us</h1>
+      <AboutUsText />
+    </div>
+  );
+};
 
-export default AboutUs
+export default AboutUs;
