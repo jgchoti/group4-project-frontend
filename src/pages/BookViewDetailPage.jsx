@@ -22,10 +22,10 @@ const BookViewDetailPage = () => {
 
     Api(`books/${id}`)
       .then((data) => {
-        setMessage("Loading...");
         setBook(data[0]);
         setImage(data[0].image);
-        console.log(data);
+        setMessage("Loading...");
+        console.log("message", message);
       })
       .catch((error) => {
         console.log(`can't get data of book id ${id}`, error);
@@ -42,7 +42,7 @@ const BookViewDetailPage = () => {
   if (!book) {
     return (
       <div className="book-item">
-        {message}
+        <p>{message}</p>
         <NavLink to="/books">Check other available books</NavLink>
       </div>
     );
