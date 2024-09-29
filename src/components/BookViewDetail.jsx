@@ -40,7 +40,7 @@ const BookViewDetail = ({ book, image, isLoggedIn }) => {
               .map((key) => (
                 <tr key={key}>
                   <th>{Capitalized(key)}</th>
-                  <td>{book[key]}</td>
+                  <td>{key === "price" ? `€${book[key]}` : `${book[key]}`}</td>
                 </tr>
               ))}
           </tbody>
