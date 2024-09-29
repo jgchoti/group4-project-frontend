@@ -11,6 +11,7 @@ const BookViewDetailPage = () => {
   const [user, setUser] = useState(null);
   const [isSeller, setIsSeller] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [message, setMessage] = useState("");
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -21,11 +22,14 @@ const BookViewDetailPage = () => {
 
     Api(`books/${id}`)
       .then((data) => {
+        setMessage("Loading...");
         setBook(data[0]);
         setImage(data[0].image);
+        console.log(data);
       })
       .catch((error) => {
         console.log(`can't get data of book id ${id}`, error);
+        setMessage("This book is unavailable.");
       });
   }, [id]);
 
@@ -38,10 +42,8 @@ const BookViewDetailPage = () => {
   if (!book) {
     return (
       <div className="book-item">
-        <p>This book is unavailable.</p>
-        <div className="link-to-home">
-          <NavLink to="/books">Check other available books</NavLink>
-        </div>
+        {message}
+        <NavLink to="/books">Check other available books</NavLink>
       </div>
     );
   }
