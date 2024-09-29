@@ -21,7 +21,7 @@ const EditBookPage = () => {
   }
 
   return (
-    <div>
+    <div className="edit-book-heading">
       <h1>Edit Your Book</h1>
       <EditBookForm token={token} id={id} />
     </div>

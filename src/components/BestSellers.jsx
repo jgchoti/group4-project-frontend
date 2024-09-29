@@ -10,7 +10,6 @@ const BestSellers = () => {
   useEffect(() => {
     Api("books/best")
       .then((data) => {
-        console.log("Best Books:", data);
         setBestSellerBooks(data);
       })
       .catch((error) => console.error("Error:", error));

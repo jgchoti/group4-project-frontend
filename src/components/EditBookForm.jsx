@@ -80,7 +80,7 @@ const EditBookForm = ({ id, token }) => {
         <div className="book-detail-image-wrapper">
           <img src={book.image} alt="Book Cover" />
         </div>
-        <h3>{book.title}</h3>
+        <h2>{book.title}</h2>
         {!bookEdited ? (
           <form onSubmit={handleSubmit}>
             <label>Mark this book as</label>

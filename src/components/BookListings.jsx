@@ -13,7 +13,6 @@ const BookListings = () => {
       })
       .catch((error) => console.error("Error:", error));
   }, []);
-  console.log(books);
 
   if (!books) {
     return <div>Loading...</div>;

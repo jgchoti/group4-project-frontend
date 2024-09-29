@@ -95,10 +95,16 @@ select {
   margin-bottom: 30px;
 }
 
-h1,
-h2 {
+.edit-book-heading h1,
+.label h1 {
   margin-top: 80px;
   text-align: center;
+  font-size: 45px;
+}
+
+.add-book-form h2 {
+  font-size: 36px;
+  margin: 0 auto 24px;
 }
 
 .info-message {
