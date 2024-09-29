@@ -11,7 +11,7 @@ const BookViewDetailPage = () => {
   const [user, setUser] = useState(null);
   const [isSeller, setIsSeller] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [message, setMessage] = useState("");
+  const [message, setMessage] = useState("Loading...");
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -24,7 +24,6 @@ const BookViewDetailPage = () => {
       .then((data) => {
         setBook(data[0]);
         setImage(data[0].image);
-        setMessage("Loading...");
         console.log("message", message);
       })
       .catch((error) => {
